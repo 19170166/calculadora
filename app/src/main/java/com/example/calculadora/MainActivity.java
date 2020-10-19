@@ -157,6 +157,22 @@ public class MainActivity extends AppCompatActivity {
                 valor="";
             }
         });
+        botoninvertir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numero2=Double.parseDouble(pant.getText().toString())*-1;
+                mostrar=String.valueOf(numero2);
+                pant.setText(mostrar);
+            }
+        });
+        botonporcentaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numero2=Double.parseDouble(pant.getText().toString())/100;
+                mostrar=String.valueOf(numero2);
+                pant.setText(mostrar);
+            }
+        });
         botonigual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
