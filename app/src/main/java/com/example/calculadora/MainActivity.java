@@ -9,16 +9,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    double numero1=0.0,numero2=0.0,resultado=0.0;
+    double numero=0.0,numero2=0.0,resultado=0.0,resultado2=0.0;
     boolean lleno=false;
-    String valor;
+    String mostrar,valor;
     int operacion=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView pant=(TextView) findViewById(R.id.pantalla);
+        final TextView pant=(TextView) findViewById(R.id.pantalla);
         Button boton1=(Button)findViewById(R.id.btn1);
         Button boton2=(Button)findViewById(R.id.btn2);
         Button boton3=(Button)findViewById(R.id.btn3);
@@ -29,156 +29,158 @@ public class MainActivity extends AppCompatActivity {
         Button boton8=(Button)findViewById(R.id.btn8);
         Button boton9=(Button)findViewById(R.id.btn9);
         Button boton0=(Button)findViewById(R.id.btn0);
+        Button botonpunto=(Button)findViewById(R.id.btn_p);
         Button botonigual=(Button)findViewById(R.id.btnigual);
         Button botonpor=(Button)findViewById(R.id.btnx);
         Button botonmenos=(Button)findViewById(R.id.btnmenos);
         Button botonmas=(Button)findViewById(R.id.btnmas);
         Button botondiv=(Button)findViewById(R.id.btndiv);
         Button botonac=(Button)findViewById(R.id.btnac);
-    }
+        Button botoninvertir=(Button)findViewById(R.id.btnm_m);
+        Button botonporcentaje=(Button)findViewById(R.id.btnporcentaje);
 
-
-    public void onclockbtnac(View v){
-        TextView tx=(TextView)findViewById(R.id.pantalla);
-        tx.setText("0");
-        lleno=false;numero1=0.0;numero2=0.0;
-    }
-    public void onclickbtn1(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-                tx.setText(tx.getText()+"1");
-    }
-    public void onclickbtn2(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"2");
-    }
-    public void onclickbtn3(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"3");
-    }
-    public void onclickbtn4(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"4");
-    }
-    public void onclickbtn5(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"5");
-    }
-    public void onclickbtn6(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"6");
-    }
-    public void onclickbtn7(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"7");
-    }
-    public void onclickbtn8(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"8");
-    }
-    public void onclickbtn9(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"9");
-    }
-    public void onclickbtn0(View v){
-        TextView tx=(TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+"0");
-    }
-    public void onclickbtnpunto(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        tx.setText(tx.getText()+".");
-    }
-    public void onclickbtnmas(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        if (lleno=false){
-            numero1=Double.parseDouble(tx.getText().toString());
-            lleno=true;
-        }
-        /*else if(lleno=true){
-            numero2=Double.parseDouble(tx.getText().toString());
-        }*/
-        operacion=1;
-        tx.setText("0");
-        //tx.setText(tx.getText()+"+");
-    }
-    public void onclickbtnmenos(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        if (lleno=false){
-            numero1=Double.parseDouble(tx.getText().toString());
-            lleno=true;
-        }
-        /*else if(lleno=true){
-            numero2=Double.parseDouble(tx.getText().toString());
-        }*/
-        operacion=2;
-        tx.setText("0");
-        //tx.setText(tx.getText()+"-");
-    }
-    public void onclickbtndiv(View v){
-        TextView tx = (TextView)findViewById(R.id.pantalla);
-        if (lleno=false){
-            numero1=Double.parseDouble(tx.getText().toString());
-            lleno=true;
-        }
-        /*else if(lleno=true){
-            numero2=Double.parseDouble(tx.getText().toString());
-        }*/
-        operacion=3;
-        tx.setText("0");
-        //tx.setText(tx.getText()+"/");
-    }
-    public void onclickbtnx(View v){
-        TextView tx=(TextView)findViewById(R.id.pantalla);
-        if (lleno=false){
-            numero1=Double.parseDouble(tx.getText().toString());
-            lleno=true;
-        }
-        /*else if(lleno=true){
-            numero2=Double.parseDouble(tx.getText().toString());
-        }*/
-        operacion=4;
-        tx.setText("0");
-        //tx.setText(tx.getText()+"x");
-    }
-    public void onckickbtnigual(View v){
-        TextView tx=(TextView)findViewById(R.id.pantalla);
-        if(operacion==1){
-            if(lleno=true){
-                numero2=Double.parseDouble(tx.getText().toString());
+        boton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"1";
+                pant.setText(mostrar);
             }
-            resultado=numero1+numero2;
-            numero1=resultado;
-            //tx=(TextView)findViewById(R.id.pantalla);
-            //valor=Double.toString(resultado);
-            tx.setText(Double.toString(resultado));
-        }
-        if(operacion==2){
-            if(lleno=true){
-                numero2=Double.parseDouble(tx.getText().toString());
+        });
+        boton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"2";
+                pant.setText(mostrar);
             }
-            resultado=numero1-numero2;
-            numero1=resultado;
-            //tx=(TextView)findViewById(R.id.pantalla);
-            tx.setText(Double.toString(resultado));
-        }
-        if(operacion==3){
-            if(lleno=true){
-                numero2=Double.parseDouble(tx.getText().toString());
+        });
+        boton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"3";
+                pant.setText(mostrar);
             }
-            resultado=numero1/numero2;
-            numero1=resultado;
-            //tx=(TextView)findViewById(R.id.pantalla);
-            tx.setText(Double.toString(resultado));
-        }
-        if(operacion==4){
-            if(lleno=true){
-                numero2=Double.parseDouble(tx.getText().toString());
+        });
+        boton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"4";
+                pant.setText(mostrar);
             }
-            resultado=numero1*numero2;
-            numero1=resultado;
-            //tx=(TextView)findViewById(R.id.pantalla);
-            tx.setText(Double.toString(resultado));
-        }
-
+        });
+        boton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"5";
+                pant.setText(mostrar);
+            }
+        });
+        boton6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"6";
+                pant.setText(mostrar);
+            }
+        });
+        boton7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"7";
+                pant.setText(mostrar);
+            }
+        });
+        boton8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"8";
+                pant.setText(mostrar);
+            }
+        });
+        boton9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"9";
+                pant.setText(mostrar);
+            }
+        });
+        boton0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+"0";
+                pant.setText(mostrar);
+            }
+        });
+        botonpunto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrar=pant.getText().toString()+".";
+                pant.setText(mostrar);
+            }
+        });
+        botonmas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pant.setText(" ");
+                valor=mostrar;
+                operacion=1;
+            }
+        });
+        botonmenos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pant.setText(" ");
+                valor=mostrar;
+                operacion=2;
+            }
+        });
+        botondiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pant.setText(" ");
+                valor=mostrar;
+                operacion=3;
+            }
+        });
+        botonpor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pant.setText(" ");
+                valor=mostrar;
+                operacion=4;
+            }
+        });
+        botonac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pant.setText("0");
+                numero=0;
+                operacion=0;
+                valor="";
+            }
+        });
+        botonigual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (operacion==1){
+                    numero=Double.parseDouble(valor)+Double.parseDouble(pant.getText().toString());
+                    mostrar=String.valueOf(numero);
+                    pant.setText(mostrar);
+                }
+                if (operacion==2){
+                    numero=Double.parseDouble(valor)-Double.parseDouble(pant.getText().toString());
+                    mostrar=String.valueOf(numero);
+                    pant.setText(mostrar);
+                }
+                if (operacion==3){
+                    numero=Double.parseDouble(valor)/Double.parseDouble(pant.getText().toString());
+                    mostrar=String.valueOf(numero);
+                    pant.setText(mostrar);
+                }
+                if (operacion==4){
+                    numero=Double.parseDouble(valor)*Double.parseDouble(pant.getText().toString());
+                    mostrar=String.valueOf(numero);
+                    pant.setText(mostrar);
+                }
+            }
+        });
     }
-
 }
