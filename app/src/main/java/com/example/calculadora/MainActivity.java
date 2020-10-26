@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+
     double numero=0.0,numero2=0.0,resultado=0.0,resultado2=0.0;
     boolean lleno=false;
     String mostrar,valor;
